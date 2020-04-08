@@ -1,0 +1,86 @@
+/***** Grid ****/
+#main{
+  display:grid;
+  grid-template-columns:1fr;
+  grid-auto-rows: minmax(150px, auto);
+  grid-gap: 10px;
+  height:100vh;
+  grid-template-areas:
+  "header"
+  "nav"
+  "main-header"
+  "alert"
+  "traffic"
+  "daily"
+  "mobile-user"
+  "social"
+  "new-members"
+  "message"
+  "recent"
+  "settings"
+}
+
+header{
+  grid-area: header;
+}
+
+nav{
+  grid-area: nav;
+}
+
+#main-header-container{
+  grid-area: main-header;
+}
+
+
+#alert-container{
+  grid-area:alert;
+}
+
+#traffic--container{
+  grid-area: traffic;
+}
+
+#daily-container{
+  grid-area:daily;
+}
+
+#mobile-users-continer{
+  grid-area: mobile-user;
+}
+
+#social-container-container{
+  grid-area:social;
+}
+
+#new-members-container{
+  grid-area:new-members;
+}
+#recent-activity-container{
+  grid-area:recent;
+}
+
+#message-container{
+  grid-area:message;
+}
+
+
+#settings-container{
+  grid-area:settings;
+}
+
+@media only screen and (min-width:768px){
+  #main{
+    grid-template-columns: 100px 2fr repeat(2, 1fr);
+    grid-template-areas:
+    "header header header header"
+    "nav main-header main-header main-header"
+    "nav alert alert alert "
+    "nav traffic traffic traffic"
+    "nav daily mobile-user mobile-user"
+    "nav social social social "
+    "nav new-members recent recent"
+    "nav message settings settings";
+    grid-template-rows: 100px minmax(150px, auto) 100px;
+  }
+}
