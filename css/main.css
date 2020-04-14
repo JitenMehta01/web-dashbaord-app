@@ -88,9 +88,20 @@ nav{
 
 .close-alert{
   flex-basis: 75px;
-
+  padding:0 10px;
+  display:flex;
+  justify-content: flex-end;
 }
 
+#alert-container > p{
+  display:flex;
+  flex-direction: column;
+}
+
+#alert-container > p > strong,
+#alert-container > p > span{
+  align-self: center;
+}
 
 
 

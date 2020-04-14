@@ -1,5 +1,7 @@
 // VARIABLES
-// const alertSection = document.getElementById('alert-container');
+const alertSection = document.getElementById('alert-container');
+
+
 
 
 
@@ -13,11 +15,17 @@
 
 
 
+
 const countWords = (str) => {
-  return str.split(' ').length;
+  const text = str.textContent;
+  return text.split(/\s+/);
+};
+
+const alertString = document.querySelector('#alert-container > p .alertmessage');
+const alertWords = countWords(alertString);
+const mq = window.matchMedia( "(max-width: 798px)" );
+
+if (alertWords.length > 10 && mq.matches){
+alertWords.splice(10);
+alertString.innerHTML = alertWords.join(' ') + ' ... ';
 }
-
-let words = document.querySelector('#alert-container p');
-
-
-console.log(countWords(words));
