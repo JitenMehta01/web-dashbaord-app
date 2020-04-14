@@ -1,0 +1,146 @@
+/**************************************************************************************************************
+********************************************* HEADER-MOBILE STYLES ********************************************
+**************************************************************************************************************/
+header{
+
+  display:flex;
+  align-items: center;
+}
+
+header > img:nth-of-type(1){
+  margin-right:auto;
+  margin-left:25px;
+}
+
+.notification{
+  display:flex;
+  margin-right: 20px;
+  height:75%;
+}
+
+
+header .notification .bell img{
+  width:30px;
+}
+
+.profile-image img{
+  width:40px;
+  height:40px;
+  align-self: center;
+  border-radius: 20px;
+}
+
+.bell{
+padding-right:30px;
+border-right: 2px solid #5d61bf;
+}
+
+.profile-image{
+  padding-left:30px;
+}
+
+.bell,
+.profile-image{
+  display:flex;
+  align-content: center;
+}
+
+.profile-image::after{
+  display:none;
+}
+
+/**************************************************************************************************************
+********************************************* SIDE-NAV-MOBILE STYLES ********************************************
+**************************************************************************************************************/
+
+/** svg container **/
+nav{
+  display:flex;
+}
+.sidenav-icons {
+  display:flex;
+  flex:1;
+  justify-content:space-around;
+}
+
+/** svg icons **/
+
+.icon-container{
+  display: flex;
+  align-content: center;
+}
+
+.sidenav-icons .icon-container svg{
+  width:40px;
+}
+
+
+/**************************************************************************************************************
+********************************************* ALERT ********************************************
+**************************************************************************************************************/
+#alert-container{
+  display:flex;
+}
+
+#alert-container > p{
+  padding-left:15px;
+}
+
+.close-alert{
+  flex-basis: 75px;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**************************************************************************************************************
+********************************************* MQ ********************************************
+**************************************************************************************************************/
+
+@media only screen and (min-width: 798px){
+
+  /*** HEADER STYLES ***/
+  .profile-image::after{
+    content: "Victoria Chambers";
+    padding-left:10px;
+    margin: auto 0;
+    font-size:15px;
+    color:#fff;
+    display: block;
+  }
+
+.sidenav-icons{
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.icon-container{
+  justify-content: center;
+}
+
+.sidenav-icons .icon-container svg{
+  height:100px;
+}
+
+
+}
