@@ -5,6 +5,7 @@ header{
 
   display:flex;
   align-items: center;
+  margin-bottom:-10px;
 }
 
 header > img:nth-of-type(1){
@@ -50,6 +51,31 @@ border-right: 2px solid #5d61bf;
 }
 
 /**************************************************************************************************************
+********************************************* DASHBOARD HEADING-MOBILE STYLES ********************************************
+**************************************************************************************************************/
+
+
+#dashboard-container > ul{
+  display:flex;
+  list-style: none;
+  flex-direction:column;
+  flex:1;
+  justify-content: space-evenly;
+  border:none;
+}
+
+.main-header-search input{
+  width:100%;
+  border-radius:5px;
+  border: 1px solid gray;
+  padding:5px;
+}
+
+.main-header-search{
+  border:1px solid #DCDCDC;
+}
+
+/**************************************************************************************************************
 ********************************************* SIDE-NAV-MOBILE STYLES ********************************************
 **************************************************************************************************************/
 
@@ -68,6 +94,7 @@ nav{
 .icon-container{
   display: flex;
   align-content: center;
+  justify-content: center;
 }
 
 .sidenav-icons .icon-container svg{
@@ -79,33 +106,57 @@ nav{
 ********************************************* ALERT ********************************************
 **************************************************************************************************************/
 #alert-container{
+  padding:0;
+}
+
+#alert-container .alert-inside-container{
   display:flex;
+  flex:1;
 }
 
-#alert-container > p{
-  padding-left:15px;
-}
-
-.close-alert{
-  flex-basis: 75px;
-  padding:0 10px;
+#alert-container > .alert-inside-container > p{
+  margin-right: auto;
   display:flex;
-  justify-content: flex-end;
+  flex-direction: column;
+  flex:auto;
+  color:#fff;
 }
 
-#alert-container > p{
+.close-check-alert{
+  flex-basis: 35px;
   display:flex;
   flex-direction: column;
 }
 
-#alert-container > p > strong,
-#alert-container > p > span{
+.close-check-alert svg {
+  width:20px;
+  height:20px;
+  align-self: center;
+}
+
+.close-check-alert div {
+  flex:1;
+}
+
+
+#alert-container > .alert-inside-container > p > strong,
+#alert-container > .alert-inside-container > p > span{
   align-self: center;
 }
 
 
+.close-check-alert div:nth-of-type(1){
+  background-color:#bb1e3c;
+}
+
+.close-check-alert div:nth-of-type(2){
+  background-color: #008000;
+}
 
 
+.alerticon{
+  fill:#fff;
+}
 
 
 
@@ -140,6 +191,8 @@ nav{
     display: block;
   }
 
+/*** SIDENAV ICONS ***/
+
 .sidenav-icons{
   flex-direction: column;
   justify-content: flex-start;
@@ -152,6 +205,81 @@ nav{
 .sidenav-icons .icon-container svg{
   height:100px;
 }
+
+/*** ALERT MESSAGE ***/
+#alert-container{
+  padding:0 25px 0 25px;
+}
+
+
+.close-check-alert{
+  flex-direction: row;
+  flex-basis: 70px;
+}
+#alert-container .alert-inside-container p {
+  flex-direction: row;
+  padding:0 15px;
+}
+
+#alert-container .alert-inside-container{
+  border-radius:5px;
+  width:100%;
+}
+
+#alert-container{
+  background-color: #fff;
+}
+
+.alert-inside-container{
+  background-color:#7377bf;
+}
+
+
+/**** DASHBOARD HEADING-MOBILE STYLES ****/
+
+#dashboard-container > ul{
+flex-direction: row;
+justify-content: flex-start;
+padding:0;
+}
+
+#dashboard-container ul li{
+  display:flex;
+}
+
+#dashboard-container ul li:nth-of-type(1){
+  margin-right:auto;
+  align-items: center;
+  padding: 0 25px;
+}
+
+
+#dashboard-container ul li:nth-of-type(1) h2{
+  text-align: left;
+}
+
+#dashboard-container ul li:nth-of-type(1){
+  flex:1 50px;
+}
+
+.main-header-search{
+  display:flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex:9;
+  padding-right:25px;
+  background-color:#fbfbfb;
+}
+
+
+.main-header-search input{
+  width:300px;
+}
+
+#dashboard-container{
+  padding:0;
+}
+
 
 
 }

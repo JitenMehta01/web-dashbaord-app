@@ -28,7 +28,7 @@ nav{
   grid-area: nav;
 }
 
-#main-header-container{
+#dashboard-container{
   grid-area: main-header;
 }
 
@@ -81,6 +81,6 @@ nav{
     "nav social social social "
     "nav new-members recent recent"
     "nav message settings settings";
-    grid-template-rows: 70px minmax(150px, auto) 100px;
+    grid-template-rows: 70px minmax(30px, auto) 35px;
   }
 }

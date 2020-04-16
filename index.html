@@ -39,6 +39,22 @@
         <path d="M26 24H14.9c-.4-1.7-2-3-3.9-3s-3.4 1.3-3.9 3H6c-.6 0-1 .4-1 1s.4 1 1 1h1.1c.4 1.7 2 3 3.9 3s3.4-1.3 3.9-3H26c.6 0 1-.4 1-1s-.4-1-1-1zm-15 3.4c-1.3 0-2.4-1.1-2.4-2.4 0-1.3 1.1-2.4 2.4-2.4 1.3 0 2.4 1.1 2.4 2.4 0 1.3-1.1 2.4-2.4 2.4zM26 8H14.9c-.4-1.7-2-3-3.9-3S7.6 6.3 7.1 8H6c-.6 0-1 .4-1 1s.4 1 1 1h1.1c.4 1.7 2 3 3.9 3s3.4-1.3 3.9-3H26c.6 0 1-.4 1-1s-.4-1-1-1zm-15 3.4c-1.3 0-2.4-1.1-2.4-2.4 0-1.3 1.1-2.4 2.4-2.4 1.3 0 2.4 1.1 2.4 2.4 0 1.3-1.1 2.4-2.4 2.4zM26 16h-2.1c-.4-1.7-2-3-3.9-3s-3.4 1.3-3.9 3H6c-.6 0-1 .4-1 1s.4 1 1 1h10.1c.4 1.7 2 3 3.9 3s3.4-1.3 3.9-3H26c.6 0 1-.4 1-1s-.4-1-1-1zm-6 3.4c-1.3 0-2.4-1.1-2.4-2.4 0-1.3 1.1-2.4 2.4-2.4 1.3 0 2.4 1.1 2.4 2.4 0 1.3-1.1 2.4-2.4 2.4zM28 0H4C1.8 0 0 1.8 0 4v24c0 2.2 1.8 4 4 4h24c2.2 0 4-1.8 4-4V4c0-2.2-1.8-4-4-4zm2 28c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h24c1.1 0 2 .9 2 2v24z" fill="#fff"/>
       </symbol>
     </svg>
+
+    <!--- CLOSE  ---->
+    <svg xmlns="http://www.w3.org/2000/svg" style ='display:none;'>
+      <symbol id = 'closealert' viewBox="0 0 350.556 350.556" width = '20' height = '20'>
+        <path d="M357 35.7L321.3 0 178.5 142.8 35.7 0 0 35.7l142.8 142.8L0 321.3 35.7 357l142.8-142.8L321.3 357l35.7-35.7-142.8-142.8z"/>
+      </symbol>
+    </svg>
+
+
+    <!--- CHECK  ---->
+    <svg xmlns="http://www.w3.org/2000/svg" style = 'display:none;'>
+      <symbol id = 'checkalert' viewBox="0 0 515.556 515.556" width = '20' height = '20'>
+        <path d="M0 274.226l176.549 176.886L515.556 112.44l-48.67-47.997-290.337 290L47.996 225.891z"/>
+      </symbol>
+    </svg>
+
       <!--- SVGS END ---->
 
 
@@ -79,25 +95,35 @@
 
         <!-- Dashbaord headline and search bar -->
 
-        <section id='main-header-container' class = 'container'>
-          <h2 class='headline'>Dashboard</h2>
-
-            <div class = 'main-header-search'>
-              <input type = 'search' placeholder='search....'>
-            </div>
+        <section id='dashboard-container' class = 'container'>
+          <ul>
+            <li>
+              <h2 class='headline'>Dashboard</h2>
+            </li>
+            <li class = 'main-header-search'>
+                <input type = 'search' placeholder='search....'>
+            </li>
+          </ul>
         </section>
 
         <!-- alert banner -->
 
         <!-- THIS WILL DISPLAY ONLY IF THE WIDTH OF THE BROWSER IS 789PX OR LESS-->
         <section id = 'alert-container' class ='container'>
-            <p>
-              <strong>Alert:</strong>
-              <span class = 'alertmessage'> Nullam id dolor id nibh ultricies vehicula ut id elit. Nullam quis risus eget urna mollis ornare vel eu leo.</span>
-            </p>
-            <div class = 'close-alert'>
-            <p class="alert-banner-close">X</p>
-            </div>
+            <div class = 'alert-inside-container'>
+              <p>
+                <strong>Alert :</strong>
+                <span class = 'alertmessage'> This alert message will display a maximum of 30 words on Desktop. On mobile it will  display maximum of 10 words. This alert message will display a maximum of 40 words on Desktop. On mobile it will  display maximum of 10 words. </span>
+              </p>
+              <div class = 'close-check-alert'>
+                <div id = 'alertclosesvg' class = 'icon-container'>
+                  <svg> <use xlink:href =#closealert class='alerticon'> </svg>
+                </div>
+                <div class = 'icon-container'>
+                  <svg class = 'alertchecksvg'> <use xlink:href =#checkalert class='alerticon'> </svg>
+                </div>
+              </div>
+           </div>
         </section>
 
 
