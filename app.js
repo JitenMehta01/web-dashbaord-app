@@ -1,18 +1,36 @@
 // VARIABLES
+const main = document.getElementById('main');
 const alertContainer = document.getElementById('alert-container');
 
+const header = document.querySelector('header');
 
 
 
 
 
+// CLICK EVENT FOR THE ALERT MESSAGE.
 alertContainer.addEventListener('click', (e) =>{
-  const alertX = e.target;
-  if (alertX.id === 'alertclosesvg'){
-    alertContainer.style.display = 'none';
+  const target = e.target;
+  if (target.id === 'alertclosesvg'){
+    alertContainer.style.opacity = '0';
+      window.setTimeout( () => {
+      alertContainer.style.display = 'none';} ,
+      1000
+    );
   }
 });
 
+// CLICK EVENT FOR BELL ICON. THIS WILL TRIGGER THE ALERT MESSAGE.
+header.addEventListener('click', (e) =>{
+  const target = e.target;
+  if (target.className === 'bell'){
+    alertContainer.style.display = 'flex';
+    window.setTimeout( () => {
+    alertContainer.style.opacity = '1';} ,
+    1000
+  );
+  }
+});
 
 
 
