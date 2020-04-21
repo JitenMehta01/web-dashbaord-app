@@ -2,7 +2,7 @@
 #main{
   display:grid;
   grid-template-columns:minmax(80px, 1fr);
-  grid-auto-rows: minmax(80px, auto);
+  grid-auto-rows: minmax(60px, auto);
   grid-gap: 10px;
   height:100vh;
   grid-template-areas:
@@ -69,7 +69,7 @@ nav{
   grid-area:settings;
 }
 
-@media only screen and (min-width:798px){
+@media only screen and (min-width:780px){
   #main{
     grid-template-columns: 80px 2fr repeat(2, 1fr);
     grid-template-areas:
@@ -78,7 +78,7 @@ nav{
     "nav alert alert alert "
     "nav traffic traffic traffic"
     "nav daily mobile-user mobile-user"
-    "nav social social social "
+    "nav social social social"
     "nav new-members recent recent"
     "nav message settings settings";
     grid-template-rows: 70px minmax(30px, auto) 35px;

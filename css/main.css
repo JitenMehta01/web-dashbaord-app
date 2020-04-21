@@ -106,8 +106,11 @@ nav{
 ********************************************* ALERT ********************************************
 **************************************************************************************************************/
 #alert-container{
-  padding:0;
-  transition:all 1s ease-out;
+  padding: 0 0 0 25px;
+}
+
+.alert-inside-container{
+    transition:all 1s ease-out;
 }
 
 #alert-container .alert-inside-container{
@@ -145,23 +148,29 @@ nav{
   align-self: center;
 }
 
-
-.close-check-alert div:nth-of-type(1){
-  background-color:#bb1e3c;
+#alert-container > .alert-inside-container > p{
+  justify-content: center;
 }
 
-.close-check-alert div:nth-of-type(2){
-  background-color: #008000;
+
+.close-check-alert > div{
+  background-color:#008000;
 }
+
 
 
 .alerticon{
   fill:#fff;
 }
 
+.alert-bell-text{
+  display: none;
+}
 
-
-
+.checkedalertText{
+  color:#fff;
+  padding-right:25px;
+}
 
 
 
@@ -170,7 +179,10 @@ nav{
 **************************************************************************************************************/
 
 #alertclosesvg,
-.bell{
+.bell,
+#alertchecksvg
+
+{
   cursor: pointer;
 }
 
@@ -187,7 +199,7 @@ nav{
 ********************************************* MQ ********************************************
 **************************************************************************************************************/
 
-@media only screen and (min-width: 798px){
+@media only screen and (min-width: 780px){
 
   /*** HEADER STYLES ***/
   .profile-image::after{
@@ -215,9 +227,7 @@ nav{
 }
 
 /*** ALERT MESSAGE ***/
-#alert-container{
-  padding:0 25px 0 25px;
-}
+
 
 
 .close-check-alert{
@@ -236,11 +246,33 @@ nav{
 
 #alert-container{
   background-color: #fff;
+  padding:0 25px 0 25px;
 }
 
 .alert-inside-container{
   background-color:#7377bf;
 }
+
+.alert-bell-text{
+display: block;
+}
+/*** message telling the user the alert message is already displaying ***/
+.bell{
+  align-items: center;
+}
+
+.bell p {
+  order:-1;
+  transition: all 1s ease-out;
+  opacity:0;
+  position: absolute;
+}
+
+.checkedalertText{
+  color:initial;
+  padding-right:0;
+}
+
 
 
 /**** DASHBOARD HEADING-MOBILE STYLES ****/
