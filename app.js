@@ -7,13 +7,12 @@ const checkContainer = document.getElementById('alertchecksvg');
 const bellSvg = document.querySelector('.bell img');
 
 const header = document.querySelector('header');
-let chartWidget = document.getElementById('#traffic-chart');
+let trafficCanvas = document.getElementById('#traffic-chart');
 
 
 const alertString = document.querySelector('#alert-container > .alert-inside-container > p .alertmessage');
 
 // MQ
-const mqMobile = window.matchMedia("(max-width:475px)");
 const mqTablet = window.matchMedia("(min-width: 780px)");
 const mqDesktop = window.matchMedia("(min-width: 980px)");
 
@@ -89,8 +88,7 @@ bellSvg.addEventListener('click', (e) =>{
         );
       }
 
-    else{
-        if (mqDesktop.matches){
+    else if (mqDesktop.matches){
           const svgDiv = bellSvg.parentNode;
           if(svgDiv.lastElementChild.tagName !== 'P'){
             const p = document.createElement('p')
@@ -103,7 +101,6 @@ bellSvg.addEventListener('click', (e) =>{
             text.style.opacity = '1';
             text.style.color = 'white';
         }
-      }
     }
 });
 
@@ -143,11 +140,37 @@ else {
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 // CHART WIDGET
-// trafficData = {
-//   labels: [​"8-23"​, ​"19-20"​, ​"20-20"​, ​"29-90"​, ​"04-19"​, ​"11-20"​, ​"9-13"​,"11-30"​, ​"4-17"​, ​"06-24"​, ​"28-31"​],
-//   datasets: [{
-//     data: [​750​, ​1250​, ​1000​, ​2000​, ​1500​, ​1750​, ​1250​, ​1850​, ​2250​, ​1500​,2500​],
-//     backgroundColor: ​'rgba(116, 119, 191, .3)'​,
-//     borderWidth: ​1​,
-//   }]
-//   };
+
+ trafficData = {
+  labels: ["08-15", "2-9", "20-15", "16-17", "5-19", "7-26", "1-3",
+  "4-19", "11-12", "18-21", "25-32"],
+  datasets: [{
+  data: [250, 150, 100, 1000, 1200, 1850, 1150, 1150, 1856, 1403,
+  1130],
+  backgroundColor: 'rgba(116, 119, 191, .3)',
+  borderWidth: 1,
+  }]
+  };
+
+  let trafficOptions = {
+  aspectRatio: 2.5,
+  animation: {
+  duration: 0
+  },
+  scales: {
+  yAxes: [{
+  ticks: {
+  beginAtZero:true
+  }
+  }]
+  },
+  legend : {
+  display: false
+  }
+  };
+
+  let trafficChart = new Chart(trafficCanvas, {
+  type: 'line',
+  data: trafficData,
+  options: trafficOptions
+  });
