@@ -7,7 +7,7 @@ const checkContainer = document.getElementById('alertchecksvg');
 const bellSvg = document.querySelector('.bell img');
 
 const header = document.querySelector('header');
-let trafficCanvas = document.getElementById('#traffic-chart');
+let trafficCanvas = document.getElementById('traffic-chart');
 
 
 const alertString = document.querySelector('#alert-container > .alert-inside-container > p .alertmessage');
