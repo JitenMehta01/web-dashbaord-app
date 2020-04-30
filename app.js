@@ -195,17 +195,22 @@ else {
 // HALF WIDTH BAR CHART
 
 let dailyData = {
- labels: ["S", "M", "T", "W", "T", "F", "S"],
- datasets: [{
- data: [50, 150, 100, 800, 1100, 700, 150],
- backgroundColor: '#7377bf',
- hoverBackgroundColor: '#4d4c72',
- barThickness: '20px',
- barThickness: 2,
- maxBarThickness: 2,
- minBarLength: 2,
- }]
- };
+      labels: ["S", "M", "T", "W", "T", "F", "S"],
+      data: {
+    datasets: [{
+      backgroundColor: '#7377bf',
+      hoverBackgroundColor: '#4d4c72',
+      barThickness: '20px',
+      barThickness: 2,
+      maxBarThickness: 2,
+      minBarLength: 2,
+      data: [50, 150, 100, 800, 1100, 700, 150]
+    }]
+  };
+}
+
+
+
 
  let dailyOptions = {
  maintainAspectRatio: false,
