@@ -1,6 +1,7 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 // VARIABLES
 const main = document.getElementById('main');
+const section = document.querySelectorAll('section');
 
 const alertContainer = document.getElementById('alert-container');
 const checkContainer = document.getElementById('alertchecksvg');
@@ -8,6 +9,10 @@ const bellSvg = document.querySelector('.bell img');
 
 const header = document.querySelector('header');
 let trafficCanvas = document.getElementById('traffic-chart');
+let dailyCanvas = document.getElementById('daily-chart');
+
+const sectionnodeList = document.querySelectorAll('section');
+const sectionArray = Array.from(sectionnodeList);
 
 
 const alertString = document.querySelector('#alert-container > .alert-inside-container > p .alertmessage');
@@ -119,7 +124,7 @@ const countWords = (str) => {
 
 alertWords = countWords(alertString);
 
-// Tblet
+// Tablet
 if (mqTablet.matches && mqDesktop.matches === false ){
 alertWords.splice(13);
 alertString.innerHTML = alertWords.join(' ') + ' ... ';
@@ -141,18 +146,29 @@ else {
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 // CHART WIDGET
 
+
+// Full width line chart
+
  let trafficData = {
-  labels: ["08-15", "2-9", "20-15", "16-17", "5-19", "7-26", "1-3",
-  "4-19", "11-12", "18-21", "25-32"],
+  labels: ["08-15", "2-9", "20-15", "16-17", "5-19", "7-26", "1-3"],
   datasets: [{
-  data: [250, 150, 100, 1000, 1200, 1850, 1150, 1150, 1856, 1403,
-  1130],
+  data: [250, 150, 100, 1000, 1100, 700, 1150],
   backgroundColor: 'rgba(116, 119, 191, .3)',
   borderWidth: 1,
+  lineTension: 0,
+  fill: '#e2e3f6',
+  borderWidth: 2,
+  pointRadius: 7,
+  pointHoverRadius: 10,
+  pointBorderColor: '#7377bf',
+  pointHoverBorderColor: '#4d4c72',
+  pointBackgroundColor: '#fff',
+  borderColor: '#7377bf'
   }]
   };
 
   let trafficOptions = {
+  maintainAspectRatio: false,
   aspectRatio: 2.5,
   animation: {
   duration: 0
@@ -174,3 +190,66 @@ else {
   data: trafficData,
   options: trafficOptions
   });
+
+
+// HALF WIDTH BAR CHART
+
+let dailyData = {
+ labels: ["S", "M", "T", "W", "T", "F", "S"],
+ datasets: [{
+ data: [50, 150, 100, 800, 1100, 700, 150],
+ backgroundColor: '#7377bf',
+ hoverBackgroundColor: '#4d4c72',
+ barThickness: '20px',
+ barThickness: 2,
+ maxBarThickness: 2,
+ minBarLength: 2,
+ }]
+ };
+
+ let dailyOptions = {
+ maintainAspectRatio: false,
+ aspectRatio: 2.5,
+ animation: {
+ duration: 0
+ },
+ scales: {
+ yAxes: [{
+ ticks: {
+ beginAtZero:true
+ }
+ }]
+ },
+ legend : {
+ display: false
+ }
+ };
+
+ let barChart = new Chart(dailyCanvas, {
+ type: 'bar',
+ data: dailyData,
+ options: dailyOptions
+ });
+
+
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+// ADDING MARGIN TO THE FIRST CHILD OF EACH SECTION.
+
+for (let i =0; i < section.length; i++){
+  if (section[i].firstElementChild.tagName === 'H3'){
+    section[i].firstElementChild.style.marginBottom = '30px';
+    }
+  }
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// ADDING MARGIN-BOTTOM TO SECTIONS [ 2-9 ]
+sectionArray.splice(0, 2);
+for(let i =0; i < sectionArray.length; i++){
+sectionArray[i].style.marginBottom = '40px';
+sectionArray[i].lastElementChild.style.marginBottom = '40px';
+sectionArray[i].style.borderBottom = '1px solid grey';
+}

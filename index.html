@@ -126,15 +126,17 @@
 
         <!-- line graph charts -->
         <section id = 'traffic--container' class = 'container'>
-          <h3 class = 'section-heading'>Traffic</h3>
-          <div class = 'traffic-header'>
+          <div class = 'trafficNavwrap'>
+            <div class = 'traffic-header'>
+              <h3 class = 'section-heading'>Traffic</h3>
 
-            <ul class = 'traffic-nav'>
-              <li class = 'traffic-nav-link'>Hourly</li>
-              <li class = 'traffic-nav-link'>Daily</li>
-              <li class = 'traffic-nav-link'>Weekly</li>
-              <li class = 'traffic-nav-link'>Monthly</li>
-            </ul>
+              <ul class = 'traffic-nav'>
+                <li class = 'traffic-nav-link'>Hourly</li>
+                <li class = 'traffic-nav-link'>Daily</li>
+                <li class = 'traffic-nav-link'>Weekly</li>
+                <li class = 'traffic-nav-link'>Monthly</li>
+              </ul>
+            </div>
           </div>
 
           <div class = 'widget-container-full'>
@@ -147,13 +149,13 @@
         <section id = 'daily-container' class = 'container'>
           <h3 class = 'section-heading'>Daily Traffic</h3>
           <!-- daily traffic -->
-          <!-- <div class = 'daily-container'>
+          <div class = 'daily-container'>
 
-            <div class = 'widget-container-half'>
+            <div class = 'widget-container-half ' id = 'daily-canvas-container'>
               <canvas id = 'daily-chart'>
               </canvas>
             </div>
-          </div> -->
+          </div>
         </section>
 
           <!-- Mobile users -->
@@ -288,7 +290,7 @@
 
         <!-- Messaging -->
         <section id = 'message-container' class = 'container'>
-          <h3>Message users</h3>
+          <h3 class = 'section-heading'>Message users</h3>
           <!-- message users -->
             <!--
 
@@ -301,7 +303,7 @@
 
           <!-- settings  -->
           <section id = 'settings-container' class = 'container'>
-            <h3>Settings</h3>
+            <h3 class = 'section-heading'>Settings</h3>
 
                 <!-- on 0off switch -->
               <!-- <div id = 'toggle-container'>

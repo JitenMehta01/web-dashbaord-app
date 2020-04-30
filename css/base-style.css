@@ -12,6 +12,7 @@ body {
 
 .container{
 	display:flex;
+	flex-direction: column;
 }
 
 
@@ -30,30 +31,30 @@ h1, h2, h3, h4, h5, h6, p{
 }
  ul{
 	 margin:0;
-	 padding:0 20px;
+	 padding:0;
  }
 
  .container{
 	 padding: 0 25px 0 25px;
  }
 
+ .headline,
+ .section-heading,
+ ul{
+	 margin-bottom:10px;
+
+ }
+
+section:first-child{
+	margin-bottom:10px;
+}
+
+
 
 /**
 Background colours for all section **/
-#dashboard-container{
-  background-color: #fff ;
-}
 
-#alert-container{
-  background-color: #7377bf;
-}
 
-#traffic--container {
-  background-color: #6ad78a;
-}
-#daily-container{
-  background-color: red;
-}
 #mobile-users-continer {
   background-color: yellow;
 }
@@ -87,6 +88,9 @@ Background colours for all section **/
 @media only screen and (min-width: 780px){
 		p{
 			font-size:15px;
+		}
+		.section-heading{
+			margin-right: auto;
 		}
 
 }
