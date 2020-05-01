@@ -217,11 +217,15 @@ background-color: #5fa66d;
 color:#fff;
 }
 
-.widget-container-full, 
+.widget-container-full,
 .widget-container-half {
   position: relative;
   height:400px;
   width:100%;
+}
+
+#mobile-users-container .widget-container-half{
+  width: 400px;
 }
 
 

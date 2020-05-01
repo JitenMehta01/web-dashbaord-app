@@ -153,7 +153,15 @@ else {
 console.log(Chart.defaults.global)
   Chart.defaults.global.animation.duration = '0';
   Chart.defaults.global.defaultColor = '#7377bf'
-  Chart.defaults.global.legend = false;
+  Chart.defaults.global.legend.display = false;
+  
+  Chart.defaults.global.legend.position = () =>{
+    if (mqTablet.matches && mqDesktop.matches === false ){
+      return 'right'
+    } else {
+      return 'top'
+    }
+  }
 
 
 // Full width line chart
@@ -185,9 +193,6 @@ console.log(Chart.defaults.global)
   beginAtZero:true
   }
   }]
-  },
-  legend : {
-  display: false
   }
   };
 
@@ -213,9 +218,6 @@ console.log(Chart.defaults.global)
  beginAtZero:true
  }
  }]
- },
- legend : {
- display: false
  }
  };
 
@@ -241,13 +243,21 @@ let pieChart = new Chart(mobilePie, {
     datasets: [{
       data: [70, 15, 15],
       backgroundColor: ['#7377bf', '#81c98f', '#74b1bf'],
-      legend: true
     }]
   },
   options:{
-    rotation: -40 * Math.PI
+    rotation: -40 * Math.PI,
+    legend: {
+        display: true
+        },
+        labels: {
+          padding: 10,
+          boxWidth:15,
+          fontSize: 15
+        }
+    }
   }
-});
+);
 
 
 
