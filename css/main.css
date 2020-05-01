@@ -154,7 +154,7 @@ nav{
 
 
 .close-check-alert > div{
-  background-color:#008000;
+  background-color:#5fa66d;
 }
 
 
@@ -190,7 +190,7 @@ nav{
 }
 
 /**************************************************************************************************************
-********************************************* TRAFFIC ***************************************************
+********************************************* TRAFFIC / DAILY USERS / MOBILE USERS ***************************************************
 **************************************************************************************************************/
 
 
@@ -213,15 +213,22 @@ nav{
 }
 
 .traffic-nav li:hover{
-background-color: #4d4c72;
+background-color: #5fa66d;
 color:#fff;
 }
 
-.widget-container-full, /** daily and mobile users properties added here for DRY code **/
+.widget-container-full, 
 .widget-container-half {
   position: relative;
-  height:200px;
+  height:400px;
   width:100%;
+}
+
+
+
+#traffic--container{
+  margin-top:40px;
+
 }
 
 
@@ -356,9 +363,6 @@ padding:0;
   margin-top:0;
 }
 
-.widget-container-full{
-  height:400px;
-}
 
 .traffic-header{
   display:flex;

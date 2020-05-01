@@ -10,6 +10,7 @@ const bellSvg = document.querySelector('.bell img');
 const header = document.querySelector('header');
 let trafficCanvas = document.getElementById('traffic-chart');
 let dailyCanvas = document.getElementById('daily-chart');
+let mobilePie = document.getElementById('mobile-chart');
 
 const sectionnodeList = document.querySelectorAll('section');
 const sectionArray = Array.from(sectionnodeList);
@@ -147,6 +148,14 @@ else {
 // CHART WIDGET
 
 
+// Global datasets
+
+console.log(Chart.defaults.global)
+  Chart.defaults.global.animation.duration = '0';
+  Chart.defaults.global.defaultColor = '#7377bf'
+  Chart.defaults.global.legend = false;
+
+
 // Full width line chart
 
  let trafficData = {
@@ -170,9 +179,6 @@ else {
   let trafficOptions = {
   maintainAspectRatio: false,
   aspectRatio: 2.5,
-  animation: {
-  duration: 0
-  },
   scales: {
   yAxes: [{
   ticks: {
@@ -193,23 +199,6 @@ else {
 
 
 // HALF WIDTH BAR CHART
-
-let dailyData = {
-      labels: ["S", "M", "T", "W", "T", "F", "S"],
-      data: {
-    datasets: [{
-      backgroundColor: '#7377bf',
-      hoverBackgroundColor: '#4d4c72',
-      barThickness: '20px',
-      barThickness: 2,
-      maxBarThickness: 2,
-      minBarLength: 2,
-      data: [50, 150, 100, 800, 1100, 700, 150]
-    }]
-  };
-}
-
-
 
 
  let dailyOptions = {
@@ -232,10 +221,33 @@ let dailyData = {
 
  let barChart = new Chart(dailyCanvas, {
  type: 'bar',
- data: dailyData,
+ data: {
+     labels: ["S", "M", "T", "W", "T", "F", "S"],
+     datasets: [{
+         data: [54, 199, 156, 23, 65, 60, 237],
+         backgroundColor: '#7377bf',
+     }]
+ },
+ label:true,
  options: dailyOptions
  });
 
+// Mobile Pie chart
+
+let pieChart = new Chart(mobilePie, {
+  type: 'doughnut',
+  data: {
+    labels: ['Phones' , 'Tablets' , 'Desktop'],
+    datasets: [{
+      data: [70, 15, 15],
+      backgroundColor: ['#7377bf', '#81c98f', '#74b1bf'],
+      legend: true
+    }]
+  },
+  options:{
+    rotation: -40 * Math.PI
+  }
+});
 
 
 
