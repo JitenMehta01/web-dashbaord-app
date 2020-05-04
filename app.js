@@ -21,6 +21,7 @@ const alertString = document.querySelector('#alert-container > .alert-inside-con
 // MQ
 const mqTablet = window.matchMedia("(min-width: 780px)");
 const mqDesktop = window.matchMedia("(min-width: 980px)");
+console.log(mqTablet)
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -126,23 +127,38 @@ const countWords = (str) => {
 alertWords = countWords(alertString);
 
 // Tablet
-if (mqTablet.matches && mqDesktop.matches === false ){
-alertWords.splice(13);
-alertString.innerHTML = alertWords.join(' ') + ' ... ';
-}
-// Desktop
-else if (mqTablet.matches && mqDesktop.matches){
-  alertWords.splice(30);
-  alertString.innerHTML = alertWords.join(' ') + ' ... ';
+
+const mql = (e) => {
+
+
+
+    if (mqTablet.matches && mqDesktop.matches === false ){
+      const tablMql = () =>{
+        alertWords.splice(13);
+        alertString.innerHTML = alertWords.join(' ') + ' ... ';
+        mqTablet.addListener(tablMql);
+      }
+    }
+    // Desktop
+    else if (mqTablet.matches && mqDesktop.matches){
+        const deskMql = () =>{
+        alertWords.splice(30);
+        alertString.innerHTML = alertWords.join(' ') + ' ... ';
+        mqDesktop.addListener(deskMql)
+      }
+    }
+
+    // Mobile
+    else {
+      alertWords.splice(8);
+      alertString.innerHTML = alertWords.join(' ') + ' ... ';
+      alertString.previousElementSibling.innerHTML = '<strong>Alert</strong>';
+
+    }
+
 }
 
-// Mobile
-else {
-  alertWords.splice(8);
-  alertString.innerHTML = alertWords.join(' ') + ' ... ';
-  alertString.previousElementSibling.innerHTML = '<strong>Alert</strong>';
 
-}
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 // CHART WIDGET
@@ -154,14 +170,8 @@ console.log(Chart.defaults.global)
   Chart.defaults.global.animation.duration = '0';
   Chart.defaults.global.defaultColor = '#7377bf'
   Chart.defaults.global.legend.display = false;
-  
-  Chart.defaults.global.legend.position = () =>{
-    if (mqTablet.matches && mqDesktop.matches === false ){
-      return 'right'
-    } else {
-      return 'top'
-    }
-  }
+
+Chart.defaults.global.legend.position = 'right';
 
 
 // Full width line chart
@@ -250,6 +260,7 @@ let pieChart = new Chart(mobilePie, {
     legend: {
         display: true
         },
+        align:'end',
         labels: {
           padding: 10,
           boxWidth:15,
