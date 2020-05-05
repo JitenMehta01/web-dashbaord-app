@@ -177,7 +177,19 @@ nav{
 }
 
 
+/** Mobile alert message will onlydisplay. Tablet and Desktop will be disabled. **/
 
+.mobileAlert{
+  display:block;
+}
+
+.tabAlert{
+  display:none;
+}
+
+.deskAlert{
+  display:none;
+}
 
 /**************************************************************************************************************
 ********************************************* CURSOR STYLES ***************************************************
@@ -222,6 +234,10 @@ color:#fff;
   position: relative;
   height:400px;
   width:100%;
+}
+
+.widget-container-half{
+  align-self: center;
 }
 
 #mobile-users-container .widget-container-half{
@@ -313,6 +329,20 @@ display: block;
   padding-right:0;
 }
 
+/** Tablet alert message will onlydisplay. Tablet and Desktop will be disabled. **/
+
+.mobileAlert{
+  display:none;
+}
+
+.tabAlert{
+  display:block;
+}
+
+.deskAlert{
+  display:none;
+}
+
 
 
 /**** DASHBOARD HEADING-MOBILE STYLES ****/
@@ -393,5 +423,18 @@ margin-right: auto;
 **************************************************************************************************************/
 
 @media only screen and (min-width:908px){
+  /** Tablet alert message will onlydisplay. Tablet and Desktop will be disabled. **/
+
+  .mobileAlert{
+    display:none;
+  }
+
+  .tabAlert{
+    display:none;
+  }
+
+  .deskAlert{
+    display:block;
+  }
 
 }

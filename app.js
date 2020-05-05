@@ -15,13 +15,14 @@ let mobilePie = document.getElementById('mobile-chart');
 const sectionnodeList = document.querySelectorAll('section');
 const sectionArray = Array.from(sectionnodeList);
 
+const mqMobile = window.matchMedia("(max-width: 780px)");
+const mqTablet = window.matchMedia("(max-width: 980px)");
+const mqDesktop = window.matchMedia("(min-width:908px)");
 
 const alertString = document.querySelector('#alert-container > .alert-inside-container > p .alertmessage');
 
 // MQ
-const mqTablet = window.matchMedia("(min-width: 780px)");
-const mqDesktop = window.matchMedia("(min-width: 980px)");
-console.log(mqTablet)
+
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -124,39 +125,38 @@ const countWords = (str) => {
 };
 
 
-alertWords = countWords(alertString);
-
-// Tablet
-
-const mql = (e) => {
+let alertWords = countWords(alertString);
 
 
+const alertRes = () =>{
+    if (mqMobile.matches){
+        alertWords.splice(8);
+        alertString.innerHTML = alertWords.join(' ') + ' ... ';
+      }
 
-    if (mqTablet.matches && mqDesktop.matches === false ){
-      const tablMql = () =>{
+    else if (mqTablet.matches){
         alertWords.splice(13);
         alertString.innerHTML = alertWords.join(' ') + ' ... ';
-        mqTablet.addListener(tablMql);
       }
-    }
-    // Desktop
-    else if (mqTablet.matches && mqDesktop.matches){
-        const deskMql = () =>{
-        alertWords.splice(30);
-        alertString.innerHTML = alertWords.join(' ') + ' ... ';
-        mqDesktop.addListener(deskMql)
-      }
-    }
 
-    // Mobile
     else {
-      alertWords.splice(8);
+      alertWords.splice(30);
       alertString.innerHTML = alertWords.join(' ') + ' ... ';
       alertString.previousElementSibling.innerHTML = '<strong>Alert</strong>';
 
     }
 
-}
+  }
+
+
+
+alertRes(mqMobile, mqTablet);
+
+mqMobile.addListener(alertRes);
+mqTablet.addListener(alertRes);
+
+
+
 
 
 
@@ -171,7 +171,6 @@ console.log(Chart.defaults.global)
   Chart.defaults.global.defaultColor = '#7377bf'
   Chart.defaults.global.legend.display = false;
 
-Chart.defaults.global.legend.position = 'right';
 
 
 // Full width line chart
@@ -258,14 +257,13 @@ let pieChart = new Chart(mobilePie, {
   options:{
     rotation: -40 * Math.PI,
     legend: {
-        display: true
-        },
-        align:'end',
-        labels: {
-          padding: 10,
-          boxWidth:15,
-          fontSize: 15
-        }
+    display:true,
+    position: 'right',
+    labels: {
+        boxWidth: 20,
+        fontStyle: 'bold'
+    }
+}
     }
   }
 );
