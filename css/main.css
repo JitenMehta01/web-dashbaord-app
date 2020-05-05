@@ -97,8 +97,16 @@ nav{
   justify-content: center;
 }
 
-.sidenav-icons .icon-container svg{
+.icon-container > svg{
   width:40px;
+}
+
+.social .icon-container > svg{
+  width:80px;
+  height:80px;
+  padding:15px;
+  background-color:#7377bf;
+  border-radius: 40px;
 }
 
 
@@ -251,10 +259,38 @@ color:#fff;
 
 }
 
+/**************************************************************************************************************
+********************************************* SOCIAL ***************************************************
+**************************************************************************************************************/
 
 
+.social{
+  background-color: #fbfbfb;
+  margin-bottom:20px;
+  height:180px;
+  justify-content: center;
+  border: 1px solid grey;
+}
 
+.socialFill{
+  fill:#fff;
+}
 
+.social-text h2 {
+  color:#7377bf;
+}
+
+.social-image{
+  margin-bottom:8px;
+}
+
+.social-text h2{
+  margin-bottom:8px;
+}
+
+.social-text p{
+  font-size:30px;
+}
 /**************************************************************************************************************
 ********************************************* MQ - TABLET ********************************************
 **************************************************************************************************************/
@@ -415,6 +451,19 @@ margin-right: auto;
   margin:15px 0;
 }
 
+/** Social **/
+
+.main-social-container{
+  display:flex;
+  flex-direction: row;
+}
+.social{
+  flex:1;
+}
+
+.main-social-container > div:nth-of-type(2){
+  margin: 0 15px;
+}
 
 }
 

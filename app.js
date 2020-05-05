@@ -245,26 +245,35 @@ console.log(Chart.defaults.global)
 
 // Mobile Pie chart
 
-let pieChart = new Chart(mobilePie, {
-  type: 'doughnut',
-  data: {
+const piedata = {
     labels: ['Phones' , 'Tablets' , 'Desktop'],
     datasets: [{
       data: [70, 15, 15],
       backgroundColor: ['#7377bf', '#81c98f', '#74b1bf'],
     }]
-  },
-  options:{
+  }
+
+
+
+
+const pieoptions ={
     rotation: -40 * Math.PI,
     legend: {
     display:true,
     position: 'right',
+    aspectRatio: 4,
     labels: {
         boxWidth: 20,
         fontStyle: 'bold'
     }
+  }
 }
-    }
+
+
+let pieChart = new Chart(mobilePie, {
+  type: 'doughnut',
+  data: piedata,
+  options:pieoptions
   }
 );
 
