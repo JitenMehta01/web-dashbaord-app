@@ -53,29 +53,9 @@ section:first-child{
 
 
 
-/**
-Background colours for all section **/
-
-
-
-
-#new-members-container {
-  background-color: #8ec96d;
-}
-
-#message-container{
-  background-color: skyblue;
-}
-
-#recent-activity-container{
-  background-color: chocolate;
-}
-
-#settings-container{
-  background-color: purple;
-}
-
-
+/**************************************************************************************************************
+********************************************* SECTION BORDERS ********************************************
+**************************************************************************************************************/
 
 
 
@@ -89,6 +69,14 @@ Background colours for all section **/
 		}
 		.section-heading{
 			margin-right: auto;
+		}
+
+		/** section borders **/
+
+		#mobile-users-container,
+		#recent-activity-container,
+		#settings-container{
+			border-left: 1px solid grey;
 		}
 
 }

@@ -16,8 +16,8 @@ const sectionnodeList = document.querySelectorAll('section');
 const sectionArray = Array.from(sectionnodeList);
 
 const mqMobile = window.matchMedia("(max-width: 780px)");
-const mqTablet = window.matchMedia("(max-width: 980px)");
-const mqDesktop = window.matchMedia("(min-width:908px)");
+const mqTablet = window.matchMedia("(max-width: 1024px)");
+const mqDesktop = window.matchMedia("(min-width:1024px)");
 
 const alertString = document.querySelector('#alert-container > .alert-inside-container > p .alertmessage');
 
@@ -294,7 +294,7 @@ for (let i =0; i < section.length; i++){
 // ADDING MARGIN-BOTTOM TO SECTIONS [ 2-9 ]
 sectionArray.splice(0, 2);
 for(let i =0; i < sectionArray.length; i++){
-sectionArray[i].style.marginBottom = '40px';
+sectionArray[i].style.paddingTop = '40px';
 sectionArray[i].lastElementChild.style.marginBottom = '40px';
 sectionArray[i].style.borderBottom = '1px solid grey';
 }

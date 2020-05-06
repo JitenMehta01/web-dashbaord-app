@@ -5,7 +5,7 @@ header{
 
   display:flex;
   align-items: center;
-  margin-bottom:-10px;
+  margin-bottom:0;
 }
 
 header > img:nth-of-type(1){
@@ -25,7 +25,6 @@ header .notification .bell img{
 }
 
 .profile-image img{
-  width:40px;
   height:40px;
   align-self: center;
   border-radius: 20px;
@@ -73,6 +72,10 @@ border-right: 2px solid #5d61bf;
 
 .main-header-search{
   border:1px solid #DCDCDC;
+}
+
+#dashboard-container{
+  padding: 40px 25px 0 25px;
 }
 
 /**************************************************************************************************************
@@ -254,11 +257,6 @@ color:#fff;
 
 
 
-#traffic--container{
-  margin-top:40px;
-
-}
-
 /**************************************************************************************************************
 ********************************************* SOCIAL ***************************************************
 **************************************************************************************************************/
@@ -291,6 +289,142 @@ color:#fff;
 .social-text p{
   font-size:30px;
 }
+
+/**************************************************************************************************************
+********************************************* NEW MEMBERS ********************************************
+**************************************************************************************************************/
+
+.members-container{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom:30px;
+}
+
+.members-container > img {
+  padding:0;
+  border-radius: 70px;
+  width:60px;
+}
+
+.member-text{
+  margin-top:10px;
+}
+
+.member-text a{
+  text-decoration: none;
+  color:#7377bf;
+}
+
+/**************************************************************************************************************
+********************************************* FORM ********************************************
+**************************************************************************************************************/
+
+form{
+  display:flex;
+  flex-direction: column;
+}
+
+
+form > input,
+form textarea,
+form button,
+select,
+#save,
+#Cancel
+{
+  background-color: #fbfbfb;
+  border:1px solid grey;
+  margin-bottom:10px;
+  border-radius: 5px;
+}
+
+form > input{
+  padding:10px;
+}
+
+form textarea{
+  padding: 10px 0 60px 10px;
+}
+
+form textarea::placeholder,
+form input::placeholder,
+form button{
+  font-family: 'Raleway', sans-serif;
+
+}
+
+form button,
+#save,
+#Cancel{
+  background-color:#7377bf;
+  padding:10px;
+  color:#fff;
+  font-weight:600;
+  font-size: 14px;
+  cursor:pointer;
+  border:none;
+}
+
+form textarea::placeholder{
+  font-size: 13px;
+}
+
+select{
+  padding:10px;
+  margin-bottom:30px;
+}
+
+.settings-buttton{
+  display:flex;
+}
+
+#save,
+#Cancel{
+flex:1;
+padding:10px;
+}
+
+#save{
+  margin-right:10px;
+}
+
+.settings-buttton #Cancel{
+  background-color: grey;
+}
+
+/**************************************************************************************************************
+********************************************* RECENT ACTIVITY ********************************************
+**************************************************************************************************************/
+
+#recent-activity-container .members-container .member-text p:nth-of-type(2) {
+  font-weight:600;
+}
+
+
+
+/**************************************************************************************************************
+********************************************* SETTINGS*******************************************
+**************************************************************************************************************/
+
+
+
+/*** SETTINGS ***/
+
+#toggle-container .switch-light{
+  display:flex;
+  margin-bottom:30px;
+  flex-direction: column;
+}
+
+#toggle-container .switch-light strong{
+  margin-bottom:5px;
+}
+
+select{
+  width:100%;
+}
+
 /**************************************************************************************************************
 ********************************************* MQ - TABLET ********************************************
 **************************************************************************************************************/
@@ -348,6 +482,7 @@ color:#fff;
 .alert-bell-text{
 display: block;
 }
+
 /*** message telling the user the alert message is already displaying ***/
 .bell{
   align-items: center;
@@ -423,8 +558,9 @@ padding:0;
 }
 
 #dashboard-container{
-  padding-right:0;
+  padding: 0 0 0 25px;
 }
+
 
 
 /**** TRAFFIC CHART.JS ****/
@@ -465,25 +601,49 @@ margin-right: auto;
   margin: 0 15px;
 }
 
+/*** Message users ***/
+
+form{
+  flex:1;
 }
+
+form textarea{
+  margin-bottom: auto;
+}
+
 
 /**************************************************************************************************************
 ********************************************* MQ - DESKTOP ********************************************
 **************************************************************************************************************/
 
-@media only screen and (min-width:908px){
-  /** Tablet alert message will onlydisplay. Tablet and Desktop will be disabled. **/
+@media only screen and (min-width:1024px){
 
-  .mobileAlert{
-    display:none;
+
+  form textarea{
+    padding: 10px 0 90px 10px;
   }
 
-  .tabAlert{
-    display:none;
+
+}
+
+
+@media only screen and (min-width:1350px){
+
+  /** new members **/
+
+  .members-container{
+      flex-direction: row;
   }
 
-  .deskAlert{
-    display:block;
+
+  .member-text{
+    display:flex;
+    align-items: flex-start;
+    flex-direction: column;
+    margin: 0 auto 0 20px;
   }
+
+
+
 
 }

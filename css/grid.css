@@ -3,7 +3,6 @@
   display:grid;
   grid-template-columns:minmax(80px, 1fr);
   grid-auto-rows: minmax(60px, auto);
-  row-gap: 10px;
   height:100%;
   grid-template-areas:
   "header"
