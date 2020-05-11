@@ -72,7 +72,16 @@ border-right: 2px solid #5d61bf;
   border:none;
 }
 
-
+.main-header-search input{
+  border-radius:5px;
+  border: 1px solid gray;
+  padding:5px 40px 5px 5px;
+  background: url('data:image/svg+xml,<svg width="30px" height="20px" fill="mediumpurple" xmlns="http://www.w3.org/2000/svg" viewBox="0 170 900 24"><path d="M505.749 475.587l-145.6-145.6c28.203-34.837 45.184-79.104 45.184-127.317C405.333 90.926 314.41.003 202.666.003S0 90.925 0 202.669s90.923 202.667 202.667 202.667c48.213 0 92.48-16.981 127.317-45.184l145.6 145.6c4.16 4.16 9.621 6.251 15.083 6.251s10.923-2.091 15.083-6.251c8.341-8.341 8.341-21.824-.001-30.165zM202.667 362.669c-88.235 0-160-71.765-160-160s71.765-160 160-160 160 71.765 160 160-71.766 160-160 160z"></path></svg>') no-repeat;
+  background-position-x: right;
+  opacity:1;
+  transition: .5s all ease-out;
+  width:100%;
+}
 
 .main-header-search{
   border:1px solid #DCDCDC;
@@ -231,18 +240,7 @@ nav{
   justify-content: space-between;
 }
 
-.traffic-nav li {
-  padding:10px;
-  margin-top:-10px;
-  transition: .5s all ease-in-out;
-  transition-property: color, background-color;
-  border-radius: 20px;
-}
 
-.traffic-nav li:hover{
-background-color: #5fa66d;
-color:#fff;
-}
 
 .widget-container-full,
 .widget-container-half {
@@ -267,19 +265,36 @@ color:#fff;
   display:block;
 }
 
-.traffic-nav .active{
-  background-color: #5fa66d;
-}
 
 .traffic-nav .active a{
-  color: #fff;
-  text-decoration: none;
+  padding:10px;
+  margin-top:-10px;
+  transition: .5s all ease-in-out;
+  transition-property: color, background-color;
+  border-radius: 20px;
+  background-color: #5fa66d;
+  color:#fff;
 }
 
 .traffic-nav a{
+  padding:10px;
+  margin-top:-10px;
+  transition: .5s all ease-in-out;
+  transition-property: color, background-color;
+  border-radius: 20px;
   color: inherit;
   text-decoration: none;
 }
+.traffic-nav a:hover{
+  background-color: #5fa66d;
+  color:#fff;
+}
+
+.traffic-nav{
+  margin-bottom:40px;
+}
+
+
 
 /**************************************************************************************************************
 ********************************************* SOCIAL ***************************************************
@@ -616,6 +631,7 @@ margin-right: auto;
 }
 .traffic-nav{
   flex:0.2;
+  margin-bottom: 20px;
 }
 
 .trafficNavwrap{
@@ -663,16 +679,6 @@ form textarea{
   }
 
 
-  .main-header-search input{
-    border-radius:5px;
-    border: 1px solid gray;
-    padding:5px 40px 5px 5px;
-    background: url('data:image/svg+xml,<svg width="30px" height="20px" fill="mediumpurple" xmlns="http://www.w3.org/2000/svg" viewBox="0 170 900 24"><path d="M505.749 475.587l-145.6-145.6c28.203-34.837 45.184-79.104 45.184-127.317C405.333 90.926 314.41.003 202.666.003S0 90.925 0 202.669s90.923 202.667 202.667 202.667c48.213 0 92.48-16.981 127.317-45.184l145.6 145.6c4.16 4.16 9.621 6.251 15.083 6.251s10.923-2.091 15.083-6.251c8.341-8.341 8.341-21.824-.001-30.165zM202.667 362.669c-88.235 0-160-71.765-160-160s71.765-160 160-160 160 71.765 160 160-71.766 160-160 160z"></path></svg>') no-repeat;
-    background-position-x: right;
-    opacity:1;
-    transition: .5s all ease-out;
-  }
-
 
 }
 
@@ -699,5 +705,7 @@ form textarea{
     width:25px;
     height:25px;
   }
+
+
 
 }
