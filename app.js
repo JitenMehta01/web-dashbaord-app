@@ -8,12 +8,15 @@ const checkContainer = document.getElementById('alertchecksvg');
 const bellSvg = document.querySelector('.bell img');
 
 const header = document.querySelector('header');
-let trafficCanvas = document.getElementById('traffic-chart');
+let trafficCanvas = document.getElementById('hourly-traffic-chart');
 let dailyCanvas = document.getElementById('daily-chart');
 let mobilePie = document.getElementById('mobile-chart');
 
+const trafficNav = document.querySelector('.traffic-nav');
+
 const sectionnodeList = document.querySelectorAll('section');
 const sectionArray = Array.from(sectionnodeList);
+
 
 const mqMobile = window.matchMedia("(max-width: 780px)");
 const mqTablet = window.matchMedia("(max-width: 1024px)");
@@ -277,6 +280,22 @@ let pieChart = new Chart(mobilePie, {
   }
 );
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+// CREATING TABS FOR TRAFFIC charts
+
+
+// trafficNav.addEventListener('click', (e) => {
+//   let activeTab = document.querySelectorAll('.active');
+//   for (let i =0; i < activeTab.length; i++){
+//     activeTab[i].className = activeTab[i].className.replace('active', '');
+//   }
+//
+//   e.target.parentNode.className = 'active';
+//   const link = document.getElementById(e.target.href.split('#')[1]);
+//   link.className = ' active';
+//
+// }
+// );
 
 
 
