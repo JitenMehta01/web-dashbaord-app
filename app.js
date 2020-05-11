@@ -8,9 +8,9 @@ const checkContainer = document.getElementById('alertchecksvg');
 const bellSvg = document.querySelector('.bell img');
 
 const header = document.querySelector('header');
-let trafficCanvas = document.getElementById('hourly-traffic-chart');
-let dailyCanvas = document.getElementById('daily-chart');
-let mobilePie = document.getElementById('mobile-chart');
+// let trafficCanvas = document.getElementById('hourly-traffic-chart');
+// let dailyCanvas = document.getElementById('daily-chart');
+// let mobilePie = document.getElementById('mobile-chart');
 
 const trafficNav = document.querySelector('.traffic-nav');
 
@@ -160,142 +160,22 @@ mqTablet.addListener(alertRes);
 
 
 
-
-
-
-///////////////////////////////////////////////////////////////////////////////////////////////////////
-// CHART WIDGET
-
-
-// Global datasets
-
-console.log(Chart.defaults.global)
-  Chart.defaults.global.animation.duration = '0';
-  Chart.defaults.global.defaultColor = '#7377bf'
-  Chart.defaults.global.legend.display = false;
-
-
-
-// Full width line chart
-
- let trafficData = {
-  labels: ["08-15", "2-9", "20-15", "16-17", "5-19", "7-26", "1-3"],
-  datasets: [{
-  data: [250, 150, 100, 1000, 1100, 700, 1150],
-  backgroundColor: 'rgba(116, 119, 191, .3)',
-  borderWidth: 1,
-  lineTension: 0,
-  fill: '#e2e3f6',
-  borderWidth: 2,
-  pointRadius: 7,
-  pointHoverRadius: 10,
-  pointBorderColor: '#7377bf',
-  pointHoverBorderColor: '#4d4c72',
-  pointBackgroundColor: '#fff',
-  borderColor: '#7377bf'
-  }]
-  };
-
-  let trafficOptions = {
-  maintainAspectRatio: false,
-  aspectRatio: 2.5,
-  scales: {
-  yAxes: [{
-  ticks: {
-  beginAtZero:true
-  }
-  }]
-  }
-  };
-
-  let trafficChart = new Chart(trafficCanvas, {
-  type: 'line',
-  data: trafficData,
-  options: trafficOptions
-  });
-
-
-// HALF WIDTH BAR CHART
-
-
- let dailyOptions = {
- maintainAspectRatio: false,
- aspectRatio: 2.5,
- animation: {
- duration: 0
- },
- scales: {
- yAxes: [{
- ticks: {
- beginAtZero:true
- }
- }]
- }
- };
-
- let barChart = new Chart(dailyCanvas, {
- type: 'bar',
- data: {
-     labels: ["S", "M", "T", "W", "T", "F", "S"],
-     datasets: [{
-         data: [54, 199, 156, 23, 65, 60, 237],
-         backgroundColor: '#7377bf',
-     }]
- },
- label:true,
- options: dailyOptions
- });
-
-// Mobile Pie chart
-
-const piedata = {
-    labels: ['Phones' , 'Tablets' , 'Desktop'],
-    datasets: [{
-      data: [70, 15, 15],
-      backgroundColor: ['#7377bf', '#81c98f', '#74b1bf'],
-    }]
-  }
-
-
-
-
-const pieoptions ={
-    rotation: -40 * Math.PI,
-    legend: {
-    display:true,
-    position: 'right',
-    aspectRatio: 4,
-    labels: {
-        boxWidth: 20,
-        fontStyle: 'bold'
-    }
-  }
-}
-
-
-let pieChart = new Chart(mobilePie, {
-  type: 'doughnut',
-  data: piedata,
-  options:pieoptions
-  }
-);
-
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 // CREATING TABS FOR TRAFFIC charts
 
 
-// trafficNav.addEventListener('click', (e) => {
-//   let activeTab = document.querySelectorAll('.active');
-//   for (let i =0; i < activeTab.length; i++){
-//     activeTab[i].className = activeTab[i].className.replace('active', '');
-//   }
-//
-//   e.target.parentNode.className = 'active';
-//   const link = document.getElementById(e.target.href.split('#')[1]);
-//   link.className = ' active';
-//
-// }
-// );
+trafficNav.addEventListener('click', (e) => {
+  if (e.target.tagName === 'A'){
+  let activeTab = document.querySelectorAll('.active');
+  for (let i =0; i < activeTab.length; i++){
+    activeTab[i].className = activeTab[i].className.replace('active', '');
+  }
+
+  e.target.parentNode.className = 'active';
+      document.getElementById(e.target.href.split('#')[1]).className += ' active';
+  }
+}
+);
 
 
 
