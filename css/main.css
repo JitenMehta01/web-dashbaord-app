@@ -41,7 +41,7 @@ border-right: 2px solid #5d61bf;
   width:10px;
   height:10px;
   border-radius: 20px;
-  margin-top:-25px;
+  margin-top:0;
 }
 
 .profile-image{
@@ -49,13 +49,94 @@ border-right: 2px solid #5d61bf;
 }
 
 .bell,
-.profile-image{
+.profile-image,
+.dropdown-container{
   display:flex;
   align-content: center;
 }
 
+.dropdown-container{
+  width:35px;
+  margin-left:10px;
+  height:45px;
+  flex-direction: column;
+}
+
+.dropdown-container > .icon-container{
+    height:100%;
+}
+
+.dropdown-container > #dropdown{
+    visibility: hidden;
+    margin-top:7px;
+    z-index:9999;
+    margin-left:-180px;
+    background-color:#5fa66d;
+    margin-right:-20px;
+    transition: all .3s ease-in;
+    transform: translateY(-10px);
+    opacity:0;
+}
+
+#dropdown ul li{
+  list-style: none;
+  cursor:pointer;
+  padding:15px;
+}
+
+#dropdown ul li a{
+text-decoration: none;
+color:#fff;
+transition: all .3s ease-in;
+}
+
+#dropdown ul li:hover{
+background-color: #0F6129;
+}
+
+#dropdown ul{
+  margin-bottom:0;
+}
+
 .profile-image::after{
   display:none;
+}
+
+
+
+#dropdown.show{
+  visibility: visible;
+  transform:translateY(0px);
+  opacity:1;
+}
+
+
+/**************************************************************************************************************
+********************************************* COG SVG ANIMATION ***************************************************
+**************************************************************************************************************/
+
+@keyframes turn {
+
+
+  1%{
+    transform: rotate(0) ;
+  }
+  100%{
+    transform: rotate(180deg);
+    fill:#fff;
+  }
+}
+
+#icon-cog:hover .sidenavicon{
+    animation: turn .5s .1s ease-out backwards;
+    transform-origin: center;
+    transform-box : fill-box;
+    animation-play-state: running;
+}
+
+#icon-cog{
+    fill:#fff;
+    cursor: pointer;
 }
 
 /**************************************************************************************************************
@@ -98,6 +179,10 @@ border-right: 2px solid #5d61bf;
 /** svg container **/
 nav{
   display:flex;
+  height:80px;
+  position: fixed;
+  width: 100%;
+  z-index:9999;
 }
 .sidenav-icons {
   display:flex;
@@ -199,6 +284,8 @@ nav{
 .alert-inside-container{
   background-color:#7377bf;
 }
+
+
 
 
 /** Mobile alert message will onlydisplay. Tablet and Desktop will be disabled. **/
@@ -491,6 +578,19 @@ select{
     display: block;
   }
 
+  .profile-image + .icon-container{
+    height:initial;
+  }
+
+  .bell:after{
+    margin-top:-25px;
+  }
+
+  .dropdown-container > #dropdown{
+      margin-top:16px;
+      margin-right:5px;
+  }
+
 /*** SIDENAV ICONS ***/
 
 .sidenav-icons{
@@ -505,6 +605,13 @@ select{
 .sidenav-icons .icon-container svg{
   height:100px;
 }
+
+nav{
+  position: initial;
+  height: initial;
+}
+
+
 
 /*** ALERT MESSAGE ***/
 
@@ -595,16 +702,25 @@ padding:0;
 
 .main-header-search{
   display:flex;
-  align-items: center;
-  justify-content: flex-end;
+  align-items: flex-end;
+  justify-content: center;
   flex:9;
   padding-right:25px;
   background-color:#fbfbfb;
+  flex-direction: column;
+
 }
 
 
-.main-header-search input{
+.main-header-search input,
+.main-header-search div{
   width:300px;
+}
+
+.name-suggestion-container .name-suggestion{
+  padding:10px;
+  background-color:#5fa66d;
+  color:#fff;
 }
 
 #dashboard-container{

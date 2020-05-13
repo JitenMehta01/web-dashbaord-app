@@ -5,6 +5,8 @@ const dailytrafficCanvas = document.getElementById('daily-traffic-chart');
 const weeklytrafficCanvas = document.getElementById('weekly-traffic-chart');
 const monthlytrafficCanvas = document.getElementById('monthly-traffic-chart');
 
+const trafficLinks = document.querySelectorAll('a[href$="-traffic-chart-container"]');
+
 // DAILY
 let dailyCanvas = document.getElementById('daily-chart');
 let mobilePie = document.getElementById('mobile-chart');
@@ -61,7 +63,7 @@ console.log(Chart.defaults.global)
 // Daily line chart
 
 let dailytrafficData = {
- labels: ["08-09", "09-10", "10-11", "11-12", "12-13", "13-14", "14-15", "15-16", "16-15"],
+ labels: ["08-09", "09-10", "10-11", "11-12", "12-13", "13-14", "14-15", "15-16", "16-17"],
  datasets: [{
  data: [250, 150, 100, 1000, 1100, 700, 1150, 654, 987],
  backgroundColor: 'rgba(116, 119, 191, .3)',
@@ -239,3 +241,11 @@ let pieChart = new Chart(mobilePie, {
   options:pieoptions
   }
 );
+
+
+/// loops throgh all traffic charts and stops the viewport going down towards the dfui
+trafficLinks.forEach((link) => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+  });
+});

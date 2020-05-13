@@ -4,9 +4,10 @@
   grid-template-columns:minmax(80px, 1fr);
   grid-auto-rows: minmax(60px, auto);
   height:100%;
+  grid-template-rows: repeat(2, 80px);
   grid-template-areas:
-  "header"
   "nav"
+  "header"
   "main-header"
   "alert"
   "traffic"
@@ -25,6 +26,7 @@ header{
 
 nav{
   grid-area: nav;
+
 }
 
 #dashboard-container{

@@ -8,9 +8,12 @@ const checkContainer = document.getElementById('alertchecksvg');
 const bellSvg = document.querySelector('.bell img');
 
 const header = document.querySelector('header');
-// let trafficCanvas = document.getElementById('hourly-traffic-chart');
-// let dailyCanvas = document.getElementById('daily-chart');
-// let mobilePie = document.getElementById('mobile-chart');
+
+const dropdownContainer = document.querySelector('.dropdown-container');
+
+// const nameSugg = document.querySelector('.name-suggestion');
+// const searchInput = document.querySelector('.main-header-search > input');
+
 
 const trafficNav = document.querySelector('.traffic-nav');
 
@@ -108,7 +111,7 @@ bellSvg.addEventListener('click', (e) =>{
             p.innerHTML = 'Your alert message is displaying down below. Click the check button to clear it of your list. ';
             const text = document.querySelector('.alert-bell-text');
             text.style.display = 'block';
-            text.style.right = '300px';
+            text.style.right = '350px';
             text.style.opacity = '1';
             text.style.color = 'white';
         }
@@ -157,6 +160,130 @@ alertRes(mqMobile, mqTablet);
 
 mqMobile.addListener(alertRes);
 mqTablet.addListener(alertRes);
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+// COG DROPDOWN MENU FUNCTIONALITY
+
+dropdownContainer.addEventListener('click', () =>{
+  const dropdown = document.getElementById('dropdown');
+  dropdown.classList.toggle('show');
+
+})
+
+
+// closes the dropdown if the clicks outside of it
+
+
+// window.addEventListener('click', (e) =>{
+//   if (!e.target.matches('.cog')){
+//     const dropdown = document.querySelectorAll('dropdown');
+//     for (let i =0; i < dropdown.length; i++){
+//       let openDropdown = dropdown[i];
+//       if (dropdown.classList.contains('show')) {
+//         dropdown.classList.remove('show');
+//       }
+//    }
+//   }
+// });
+//
+// // window.onclick = function(event) {
+// //   if (!event.target.matches('.dropbtn')) {
+// //     var dropdowns = document.getElementsByClassName("dropdown-content");
+// //     var i;
+// //     for (i = 0; i < dropdowns.length; i++) {
+// //       var openDropdown = dropdowns[i];
+// //       if (openDropdown.classList.contains('show')) {
+// //         openDropdown.classList.remove('show');
+// //       }
+// //     }
+// //   }
+// // }
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// AUTO COMPLETE FOR SEARCH NAME INPUT
+
+  const names = [
+    {name: 'Abner'},
+    {name: 'Abram'},
+    {name: 'Adam'},
+
+    {name: 'Bella'},
+    {name: 'Ben'},
+    {name: 'Beatrice'},
+
+    {name: 'Charlotte'},
+    {name: 'Charlie'},
+    {name: 'Connor'},
+
+    {name: 'Diego'},
+    {name: 'Dylan'},
+    {name: 'Drake'},
+
+    {name: 'Emily'},
+    {name: 'Ethan'},
+    {name: 'Evie'},
+
+    {name: 'Faith'},
+    {name: 'Fiona'},
+    {name: 'Fernanda'},
+
+    {name: 'Grayson'},
+    {name: 'Giovanni'},
+    {name: 'Grant.'},
+
+    {name: 'Harper'},
+    {name: 'Hudson'},
+    {name: 'Harrison'},
+
+    {name: 'Jessica'},
+    {name: 'Jake'},
+    {name: 'Jacob'},
+
+    {name: 'Liam'},
+    {name: 'Luke'},
+    {name: 'Luna'},
+
+    {name: 'Mia'},
+    {name: 'Matthew'},
+    {name: 'Madison'},
+
+    {name: 'Nicholas'},
+    {name: 'Noah'},
+    {name: 'Nash'},
+
+    {name: 'Oscar'},
+    {name: 'Oliver'},
+    {name: 'Omar'},
+
+    {name: 'Penelope'},
+    {name: 'Parker'},
+    {name: 'Paisley'},
+  ];
+
+  const nameSuggcontainer = document.querySelector('.name-suggestion-container');
+  const searchInput = document.querySelector('.main-header-search > input');
+
+  searchInput.addEventListener('keyup', (e) =>{
+    const input = searchInput.value;
+    const suggestions = names.filter((inputData) =>{
+      return inputData.name.toLowerCase().startsWith(input);
+    });
+    suggestions.forEach((suggested) => {
+      const div = document.createElement('div');
+      div.className = 'name-suggestion';
+      div.innerHTML = suggested.name;
+      nameSuggcontainer.appendChild(div);
+    });
+    if (searchInput.value === ''){
+      for (let i =0; i < nameSuggcontainer.length; i++){
+        nameSuggcontainer.removeChild();
+      }
+    }
+  });
+
+
 
 
 
