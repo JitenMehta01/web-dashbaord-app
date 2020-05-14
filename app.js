@@ -352,8 +352,9 @@ sectionArray[i].style.borderBottom = '1px solid grey';
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 // LOCAL STORAGE
 
-const settings = document.getElementById('settings-container');
-const toggleSwitches = document.querySelectorAll('#toggle-container input[type="checkbox"]');
+
+const emailToggle = document.querySelectorAll('#toggle-container input[type="checkbox"]')[0];#
+const profileToggle = document.querySelectorAll('#toggle-container input[type="checkbox"]')[1];
 const timeZone = document.getElementById('timezone');
 const saveButton = document.getElementById('save');
 const cancelButton = document.getElementById('cancel');
@@ -362,9 +363,6 @@ const cancelButton = document.getElementById('cancel');
 
 
 
-
-window.onload = () =>{
-  if (supportsLocalStoarage() ){
 
 
   // Event handler for save button
@@ -387,7 +385,11 @@ cancelButton.addEventListener('click', () =>{
 
 })
 
+// on load
 
+window.load = () => {
+emailToggle.checked = JSON.parse(localStorage.getItem('Send email notification'));
+publicToggle.checked = JSON.parse(localStorage.getItem('Set profile to public'));
+timeZone.value = JSON.parse(localStorage.getItem('Set profile to public'));
 
   }
-}
