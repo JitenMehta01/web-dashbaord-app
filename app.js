@@ -11,14 +11,17 @@ const header = document.querySelector('header');
 
 const dropdownContainer = document.querySelector('.dropdown-container');
 
-// const nameSugg = document.querySelector('.name-suggestion');
-// const searchInput = document.querySelector('.main-header-search > input');
-
+// const settings = document.getElementById('settings-container');
+// const toggleSwitches = document.querySelectorAll('#toggle-container input[type="checkbox"]');
+// const timeZone = document.getElementById('timezone');
+// const saveButton = document.getElementById('save');
+// const cancelButton document.getElementById('cancel');
 
 const trafficNav = document.querySelector('.traffic-nav');
 
 const sectionnodeList = document.querySelectorAll('section');
 const sectionArray = Array.from(sectionnodeList);
+
 
 
 const mqMobile = window.matchMedia("(max-width: 780px)");
@@ -204,84 +207,100 @@ dropdownContainer.addEventListener('click', () =>{
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 // AUTO COMPLETE FOR SEARCH NAME INPUT
 
-  const names = [
-    {name: 'Abner'},
-    {name: 'Abram'},
-    {name: 'Adam'},
+const names = [
+  'Abner',
+  'Abram',,
+  'Adam',
+  'Bella',
+  'Ben',
+  'Beatrice',
+  'Charlotte',
+  'Charlie',
+  'Connor',
+  'Diego',
+  'Dylan',
+  'Drake',
+  'Emily',
+  'Ethan',
+  'Evie',
+  'Faith',
+  'Fiona',
+  'Fernanda',
+  'Grayson',
+  'Giovanni',
+  'Grant.',
+  'Harper',
+  'Hudson',
+  'Harrison',
+  'Jessica',
+  'Jake',
+  'Jacob',
+  'Liam',
+  'Luke',
+  'Luna',
+  'Mia',
+  'Matthew',
+  'Madison',
+  'Nicholas',
+  'Noah',
+  'Nash',
+  'Oscar',
+  'Oliver',
+  'Omar',
+  'Penelope',
+  'Parker',
+  'Paisley'
+];
 
-    {name: 'Bella'},
-    {name: 'Ben'},
-    {name: 'Beatrice'},
 
-    {name: 'Charlotte'},
-    {name: 'Charlie'},
-    {name: 'Connor'},
 
-    {name: 'Diego'},
-    {name: 'Dylan'},
-    {name: 'Drake'},
 
-    {name: 'Emily'},
-    {name: 'Ethan'},
-    {name: 'Evie'},
 
-    {name: 'Faith'},
-    {name: 'Fiona'},
-    {name: 'Fernanda'},
-
-    {name: 'Grayson'},
-    {name: 'Giovanni'},
-    {name: 'Grant.'},
-
-    {name: 'Harper'},
-    {name: 'Hudson'},
-    {name: 'Harrison'},
-
-    {name: 'Jessica'},
-    {name: 'Jake'},
-    {name: 'Jacob'},
-
-    {name: 'Liam'},
-    {name: 'Luke'},
-    {name: 'Luna'},
-
-    {name: 'Mia'},
-    {name: 'Matthew'},
-    {name: 'Madison'},
-
-    {name: 'Nicholas'},
-    {name: 'Noah'},
-    {name: 'Nash'},
-
-    {name: 'Oscar'},
-    {name: 'Oliver'},
-    {name: 'Omar'},
-
-    {name: 'Penelope'},
-    {name: 'Parker'},
-    {name: 'Paisley'},
-  ];
-
-  const nameSuggcontainer = document.querySelector('.name-suggestion-container');
-  const searchInput = document.querySelector('.main-header-search > input');
-
-  searchInput.addEventListener('keyup', (e) =>{
-    const input = searchInput.value;
-    const suggestions = names.filter((inputData) =>{
-      return inputData.name.toLowerCase().startsWith(input);
-    });
-    suggestions.forEach((suggested) => {
-      const div = document.createElement('div');
-      div.className = 'name-suggestion';
-      div.innerHTML = suggested.name;
-      nameSuggcontainer.appendChild(div);
-    });
-    if (searchInput.value === ''){
-      for (let i =0; i < nameSuggcontainer.length; i++){
-        nameSuggcontainer.removeChild();
-      }
-    }
+const nameSuggcontainer = document.querySelector('.name-suggestion-container');
+  const searchInput = document.querySelector('.widget-container > input');
+  // loads all names into container from the start
+	names.forEach((name) => {
+		nameSuggcontainer.innerHTML += `
+			<p class="name-suggestion">${name}</p>
+		`
+	});
+	// keyup event listener
+  searchInput.addEventListener('keyup', (e) => {
+	  const input = searchInput.value.toLowerCase();
+	  if (input === '') {
+		  nameSuggcontainer.style.display = 'none';
+	  } else {
+		  nameSuggcontainer.style.display = 'initial';
+	  }
+	  // display name based on search
+	  const suggestion = document.querySelectorAll('.name-suggestion');
+	  	suggestion.forEach((name, index) => {
+			if (name.textContent.toLowerCase().includes(input)) {
+				name.style.display = 'block';
+			} else {
+				name.style.display = 'none';
+			}
+		  });
   });
+  //event listener for name suggestions
+  nameSuggcontainer.addEventListener('click', e => {
+	  const name = document.querySelectorAll('.name-suggestion');
+	 for (let i = 0; i < name.length; i ++) {
+		if (e.target === name[i]) {
+			searchInput.value = e.target.textContent;
+			nameSuggcontainer.style.display = 'none';
+		}
+	 }
+  });
+
+  // Removes the suggested names if the user clicks outside the input
+  window.addEventListener('click', e =>{
+    if(! e.target.className === 'name-suggestion-container');{
+      nameSuggcontainer.style.display = 'none';
+    }
+  })
+
+
 
 
 
@@ -323,4 +342,52 @@ for(let i =0; i < sectionArray.length; i++){
 sectionArray[i].style.paddingTop = '40px';
 sectionArray[i].lastElementChild.style.marginBottom = '40px';
 sectionArray[i].style.borderBottom = '1px solid grey';
+}
+
+
+
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+// LOCAL STORAGE
+
+const settings = document.getElementById('settings-container');
+const toggleSwitches = document.querySelectorAll('#toggle-container input[type="checkbox"]');
+const timeZone = document.getElementById('timezone');
+const saveButton = document.getElementById('save');
+const cancelButton = document.getElementById('cancel');
+
+
+
+
+
+
+window.onload = () =>{
+  if (supportsLocalStoarage() ){
+
+
+  // Event handler for save button
+saveButton.addEventListener('click', () =>{
+
+  localStorage.setItem('Send email notification', toggleSwitches[0].checked);
+  localStorage.setItem('Set profile to public', toggleSwitches[1].checked);
+  localStorage.setItem('Timezone', timezone.value);
+
+});
+
+// clears localStorage for cancel button
+
+cancelButton.addEventListener('click', () =>{
+  localStorage.clear();
+
+  toggleSwitches[0].checked = false;
+  toggleSwitches[1].checked = false;
+  timezone.value = '';
+
+})
+
+
+
+  }
 }

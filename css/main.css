@@ -42,6 +42,11 @@ border-right: 2px solid #5d61bf;
   height:10px;
   border-radius: 20px;
   margin-top:0;
+  transition: all .3s ease-in;
+}
+
+.bell:hover:after{
+  background-color: #fff;
 }
 
 .profile-image{
@@ -90,9 +95,11 @@ color:#fff;
 transition: all .3s ease-in;
 }
 
-#dropdown ul li:hover{
+#dropdown ul li:hover,
+.name-suggestion:hover{
 background-color: #0F6129;
 }
+
 
 #dropdown ul{
   margin-bottom:0;
@@ -459,7 +466,7 @@ form textarea,
 form button,
 select,
 #save,
-#Cancel
+#cancel
 {
   background-color: #fbfbfb;
   border:1px solid grey;
@@ -484,7 +491,7 @@ form button{
 
 form button,
 #save,
-#Cancel{
+#cancel{
   background-color:#7377bf;
   padding:10px;
   color:#fff;
@@ -508,7 +515,7 @@ select{
 }
 
 #save,
-#Cancel{
+#cancel{
 flex:1;
 padding:10px;
 }
@@ -517,7 +524,7 @@ padding:10px;
   margin-right:10px;
 }
 
-.settings-buttton #Cancel{
+.settings-buttton #cancel{
   background-color: grey;
 }
 
@@ -538,6 +545,24 @@ padding:10px;
 
 .icon-next svg:hover{
   fill: #5fa66d;
+}
+
+.name-suggestion-container {
+	display: none;
+	position: absolute;
+	z-index: 10;
+	height: 150px;
+	overflow: auto;
+  width:375px;
+  margin-top:38px;
+  background-color: #5fa66d;
+  color:#fff;
+}
+.name-suggestion-container .name-suggestion{
+  padding:10px;
+  color:#fff;
+  box-sizing: border-box;
+  cursor:pointer;
 }
 
 /**************************************************************************************************************
@@ -717,14 +742,10 @@ padding:0;
   width:300px;
 }
 
-.name-suggestion-container .name-suggestion{
-  padding:10px;
-  background-color:#5fa66d;
-  color:#fff;
-}
 
 #dashboard-container{
   padding: 0 0 0 25px;
+  position: relative;
 }
 
 
@@ -793,6 +814,7 @@ form textarea{
   form textarea{
     padding: 10px 0 90px 10px;
   }
+
 
 
 

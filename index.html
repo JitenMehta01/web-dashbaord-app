@@ -152,8 +152,6 @@
             </li>
             <li class = 'main-header-search'>
                 <input type = 'search' placeholder='search....'>
-                <div class = 'name-suggestion-container'>
-                </div>
             </li>
           </ul>
         </section>
@@ -379,7 +377,9 @@
           <!-- Form -->
 
             <form class = 'widget-container'>
-              <input type='text' placeholder = 'Search for user' class = 'form-field' id ='userField'>
+              <input autocomplete="off" type='text' placeholder = 'Search for user' class = 'form-field' id ='userField'>
+              <div class = 'name-suggestion-container'>
+              </div>
               <textarea placeholder = 'Message for user' class = 'form-area' id = 'messsageField'></textarea>
               <button type='submit' class = 'button-primary' id='form-sumbit'>Submit</button>
             </form>
@@ -389,7 +389,7 @@
           <section id = 'settings-container' class = 'container'>
             <h3 class = 'section-heading'>Settings</h3>
 
-                <!-- on 0off switch -->
+                <!-- on off switch -->
                <div id = 'toggle-container'>
                 <label class="switch-light switch-material" onclick="">
                   <input type="checkbox">
@@ -504,7 +504,7 @@
 
             <div class = 'settings-buttton'>
               <button id ='save'> Save </button>
-              <button id = 'Cancel'>Cancel</button>
+              <button id = 'cancel'>Cancel</button>
             </div>
         </section>
 
