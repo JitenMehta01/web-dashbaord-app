@@ -353,43 +353,24 @@ sectionArray[i].style.borderBottom = '1px solid grey';
 // LOCAL STORAGE
 
 
-const emailToggle = document.querySelectorAll('#toggle-container input[type="checkbox"]')[0];#
+const emailToggle = document.querySelectorAll('#toggle-container input[type="checkbox"]')[0];
 const profileToggle = document.querySelectorAll('#toggle-container input[type="checkbox"]')[1];
 const timeZone = document.getElementById('timezone');
 const saveButton = document.getElementById('save');
 const cancelButton = document.getElementById('cancel');
-
-
-
-
-
-
-
-  // Event handler for save button
+// Event handler for save button
 saveButton.addEventListener('click', () =>{
-
-  localStorage.setItem('Send email notification', toggleSwitches[0].checked);
-  localStorage.setItem('Set profile to public', toggleSwitches[1].checked);
-  localStorage.setItem('Timezone', timezone.value);
-
+localStorage.setItem('email', emailToggle.checked);
+localStorage.setItem('public', profileToggle.checked);
+localStorage.setItem('Timezone', timezone.selectedIndex);
 });
-
 // clears localStorage for cancel button
-
 cancelButton.addEventListener('click', () =>{
-  localStorage.clear();
-
-  toggleSwitches[0].checked = false;
-  toggleSwitches[1].checked = false;
-  timezone.value = '';
-
-})
-
-// on load
-
-window.load = () => {
-emailToggle.checked = JSON.parse(localStorage.getItem('Send email notification'));
-publicToggle.checked = JSON.parse(localStorage.getItem('Set profile to public'));
-timeZone.value = JSON.parse(localStorage.getItem('Set profile to public'));
-
-  }
+localStorage.clear();
+emailToggle.checked = false;
+profileToggle.checked = false;
+timezone.selectedIndex = 0;
+});
+emailToggle.checked = JSON.parse(localStorage.getItem('email'));
+profileToggle.checked = JSON.parse(localStorage.getItem('public'));
+timeZone.selectedIndex = localStorage.getItem('Timezone')
