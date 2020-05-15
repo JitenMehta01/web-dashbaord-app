@@ -24,10 +24,6 @@ const sectionArray = Array.from(sectionnodeList);
 
 
 
-const mqMobile = window.matchMedia("(max-width: 780px)");
-const mqTablet = window.matchMedia("(max-width: 1024px)");
-const mqDesktop = window.matchMedia("(min-width:1024px)");
-
 const alertString = document.querySelector('#alert-container > .alert-inside-container > p .alertmessage');
 
 // MQ
@@ -126,43 +122,6 @@ bellSvg.addEventListener('click', (e) =>{
 
 
 
-//////////////////////////////////////////////////////////////////////////////////////////////////////
-// FUNCTION WHICH ADDS A MAX NO. OF WORDS OF 30 FOR ALERT BANNER ON DESKTOP,
-const countWords = (str) => {
-  const text = str.textContent;
-  return text.split(/\s+/);
-};
-
-
-let alertWords = countWords(alertString);
-
-
-const alertRes = () =>{
-    if (mqMobile.matches){
-        alertWords.splice(8);
-        alertString.innerHTML = alertWords.join(' ') + ' ... ';
-      }
-
-    else if (mqTablet.matches){
-        alertWords.splice(13);
-        alertString.innerHTML = alertWords.join(' ') + ' ... ';
-      }
-
-    else {
-      alertWords.splice(30);
-      alertString.innerHTML = alertWords.join(' ') + ' ... ';
-      alertString.previousElementSibling.innerHTML = '<strong>Alert</strong>';
-
-    }
-
-  }
-
-
-
-alertRes(mqMobile, mqTablet);
-
-mqMobile.addListener(alertRes);
-mqTablet.addListener(alertRes);
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -174,34 +133,6 @@ dropdownContainer.addEventListener('click', () =>{
 
 })
 
-
-// closes the dropdown if the clicks outside of it
-
-
-// window.addEventListener('click', (e) =>{
-//   if (!e.target.matches('.cog')){
-//     const dropdown = document.querySelectorAll('dropdown');
-//     for (let i =0; i < dropdown.length; i++){
-//       let openDropdown = dropdown[i];
-//       if (dropdown.classList.contains('show')) {
-//         dropdown.classList.remove('show');
-//       }
-//    }
-//   }
-// });
-//
-// // window.onclick = function(event) {
-// //   if (!event.target.matches('.dropbtn')) {
-// //     var dropdowns = document.getElementsByClassName("dropdown-content");
-// //     var i;
-// //     for (i = 0; i < dropdowns.length; i++) {
-// //       var openDropdown = dropdowns[i];
-// //       if (openDropdown.classList.contains('show')) {
-// //         openDropdown.classList.remove('show');
-// //       }
-// //     }
-// //   }
-// // }
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////

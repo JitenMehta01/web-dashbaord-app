@@ -297,17 +297,17 @@ nav{
 
 /** Mobile alert message will onlydisplay. Tablet and Desktop will be disabled. **/
 
-.mobileAlert{
+/** displaying tablet alert message **/
+.alertmessage-desktop,
+.alertmessage-tablet{
+  display:none;
+}
+
+
+.alertmessage{
   display:block;
 }
 
-.tabAlert{
-  display:none;
-}
-
-.deskAlert{
-  display:none;
-}
 
 /**************************************************************************************************************
 ********************************************* CURSOR STYLES ***************************************************
@@ -640,6 +640,16 @@ nav{
 
 /*** ALERT MESSAGE ***/
 
+/** displaying tablet alert message **/
+.alertmessage,
+.alertmessage-desktop{
+  display:none;
+}
+
+.alertmessage-tablet{
+  display:block;
+}
+
 
 
 .close-check-alert{
@@ -813,6 +823,16 @@ form textarea{
 
   form textarea{
     padding: 10px 0 90px 10px;
+  }
+
+  /** displaying tablet alert message **/
+  .alertmessage,
+  .alertmessage-tablet{
+    display:none;
+  }
+
+  .alertmessage-desktop{
+    display:block;
   }
 
 
