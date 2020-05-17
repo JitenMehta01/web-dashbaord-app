@@ -137,48 +137,10 @@ dropdownContainer.addEventListener('click', () =>{
 // AUTO COMPLETE FOR SEARCH NAME INPUT
 
 const names = [
-  'Abner',
-  'Abram',,
-  'Adam',
-  'Bella',
-  'Ben',
-  'Beatrice',
-  'Charlotte',
-  'Charlie',
-  'Connor',
-  'Diego',
-  'Dylan',
-  'Drake',
-  'Emily',
-  'Ethan',
-  'Evie',
-  'Faith',
-  'Fiona',
-  'Fernanda',
-  'Grayson',
-  'Giovanni',
-  'Grant.',
-  'Harper',
-  'Hudson',
-  'Harrison',
-  'Jessica',
-  'Jake',
-  'Jacob',
-  'Liam',
-  'Luke',
-  'Luna',
-  'Mia',
-  'Matthew',
-  'Madison',
-  'Nicholas',
-  'Noah',
-  'Nash',
-  'Oscar',
-  'Oliver',
-  'Omar',
-  'Penelope',
-  'Parker',
-  'Paisley'
+'Victoria Chambers',
+'Dale Bryd',
+'Dawrin Wood',
+'Dan Oliver'
 ];
 
 
@@ -305,37 +267,42 @@ sectionArray[i].style.borderBottom = '1px solid grey';
       form.insertBefore(p, formtextArea);
     }
 
-    if (e.target.tagName === 'BUTTON'){
+    e.preventDefault();
 
-      if (formInput.value=== '' && formtextArea.value === ''){
-        e.preventDefault();
-        inputError();
-        textareaError();
 
-     }
-     else if (formInput.value=== '' && formtextArea.value !== ''){
+      if (formInput.value!== '' && formtextArea.value !== ''){
        e.preventDefault();
-       inputError();
+       form.style.display = 'none';
+       const formSection = document.getElementById('message-container');
+       const p = document.createElement('p');
+
+       p.innerHTML = 'Thank you <b>' + formInput.value + '</b>. We will be in touch soon.' ;
+       p.firstElementChild.style.fontWeight = '700';
+       p.style.textAlign = 'left';
+       formSection.appendChild(p);
 
      }
-     else if (formtextArea.value === '' && formInput.value !== ''){
-       e.preventDefault();
-       textareaError();
-     }
-     else {
-      e.preventDefault();
-      form.style.display = 'none';
-      const formSection = document.getElementById('message-container');
-      const p = document.createElement('p');
 
-      p.innerHTML = 'Thank you <b>' + formInput.value + '</b>. We will be in touch soon.' ;
-      p.firstElementChild.style.fontWeight = '700';
-      p.style.textAlign = 'left';
-      formSection.appendChild(p);
-    }
-    }
+     else if (form.children[0].tagName !== 'P' && form.children[3].tagName !== 'P' ){
 
-     });
+                  if (formInput.value=== '' && formtextArea.value === ''){
+                    e.preventDefault();
+                    inputError();
+                    textareaError();
+
+                 }
+                 else if (formInput.value=== '' && formtextArea.value !== ''){
+                   e.preventDefault();
+                   inputError();
+
+                 }
+                 else if (formtextArea.value === '' && formInput.value !== ''){
+                   e.preventDefault();
+                   textareaError();
+                 }
+
+              }
+  });
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 // LOCAL STORAGE
