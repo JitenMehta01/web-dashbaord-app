@@ -11,11 +11,7 @@ const header = document.querySelector('header');
 
 const dropdownContainer = document.querySelector('.dropdown-container');
 
-// const settings = document.getElementById('settings-container');
-// const toggleSwitches = document.querySelectorAll('#toggle-container input[type="checkbox"]');
-// const timeZone = document.getElementById('timezone');
-// const saveButton = document.getElementById('save');
-// const cancelButton document.getElementById('cancel');
+const form = document.querySelector('form');
 
 const trafficNav = document.querySelector('.traffic-nav');
 
@@ -277,8 +273,27 @@ sectionArray[i].style.borderBottom = '1px solid grey';
 
 
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+// Event listener for the Form
 
 
+  form.addEventListener('click', (e) =>{
+
+    if (e.target.tagName === 'BUTTON'){
+
+        e.preventDefault();
+        form.style.display = 'none';
+        const formSection = document.getElementById('message-container');
+        const p = document.createElement('p');
+
+        const formInput = form.querySelector('input');
+        p.innerHTML = 'Thank you <b>' + formInput.value + '</b>. We will be in touch soon.' ;
+        p.firstElementChild.style.fontWeight = '700';
+        p.style.textAlign = 'left';
+        formSection.appendChild(p);
+      }
+
+     });
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 // LOCAL STORAGE
