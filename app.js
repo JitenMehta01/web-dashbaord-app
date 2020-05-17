@@ -24,6 +24,8 @@ const alertString = document.querySelector('#alert-container > .alert-inside-con
 
 // MQ
 
+const mqDesktop = window.matchMedia("(min-width:1024px)");
+
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -278,20 +280,60 @@ sectionArray[i].style.borderBottom = '1px solid grey';
 
 
   form.addEventListener('click', (e) =>{
+    const formInput = form.querySelector('input');
+    const formtextArea = form.querySelector('textarea');
+
+    const errorStyling = (error) =>{
+      error.style.color = 'red';
+      error.style.textAlign = 'left';
+      error.style.marginBottom = '20px';
+    }
+
+    const inputError = () =>{
+      const p = document.createElement('p');
+      p.className = 'inputerror';
+      p.textContent = '* please type in a name';
+      errorStyling(p);
+      form.insertBefore(p, formInput);
+    }
+
+    const textareaError = () =>{
+      const p = document.createElement('p');
+      p.className = 'textareaerror';
+      p.textContent = '* please type in a message';
+      errorStyling(p);
+      form.insertBefore(p, formtextArea);
+    }
 
     if (e.target.tagName === 'BUTTON'){
 
+      if (formInput.value=== '' && formtextArea.value === ''){
         e.preventDefault();
-        form.style.display = 'none';
-        const formSection = document.getElementById('message-container');
-        const p = document.createElement('p');
+        inputError();
+        textareaError();
 
-        const formInput = form.querySelector('input');
-        p.innerHTML = 'Thank you <b>' + formInput.value + '</b>. We will be in touch soon.' ;
-        p.firstElementChild.style.fontWeight = '700';
-        p.style.textAlign = 'left';
-        formSection.appendChild(p);
-      }
+     }
+     else if (formInput.value=== '' && formtextArea.value !== ''){
+       e.preventDefault();
+       inputError();
+
+     }
+     else if (formtextArea.value === '' && formInput.value !== ''){
+       e.preventDefault();
+       textareaError();
+     }
+     else {
+      e.preventDefault();
+      form.style.display = 'none';
+      const formSection = document.getElementById('message-container');
+      const p = document.createElement('p');
+
+      p.innerHTML = 'Thank you <b>' + formInput.value + '</b>. We will be in touch soon.' ;
+      p.firstElementChild.style.fontWeight = '700';
+      p.style.textAlign = 'left';
+      formSection.appendChild(p);
+    }
+    }
 
      });
 
